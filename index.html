@@ -16,6 +16,7 @@
             background-color: #121212; /* Fondo oscuro elegante */
             color: #e0e0e0;
             line-height: 1.7;
+            scroll-behavior: smooth; /* Hace que el deslizamiento del botón sea suave */
         }
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', 'Georgia', serif;
@@ -105,6 +106,7 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             transition: all 0.4s;
+            cursor: pointer;
         }
         .btn-lineal:hover {
             background-color: var(--dorado-premium);
@@ -301,10 +303,11 @@
         </nav>
     </header>
 
-    <!-- Portada Principal -->
+    <!-- Portada Principal con el Botón Vinculado -->
     <section id="inicio" class="hero">
         <span class="hero-subtitle">Alta Cocina Tradicional</span>
         <h1>Sazón Ayacuchana & Huantina</h1>
+        <!-- El href apuntando a #carta activa el movimiento de pantalla -->
         <a href="#carta" class="btn-lineal">Ver Nuestra Carta</a>
     </section>
 
@@ -313,5 +316,3 @@
         <div class="historia-container">
             <div class="historia-texto">
                 <h2><span>Nuestra Historia</span>Tradición Familiar y Amor por los Andes</h2>
-                <p>En La Casa de Mariela rendimos un sincero homenaje a las recetas ancestrales de la región de Ayacucho y de la hermosa villa de Huanta. Seleccionamos cuidadosamente cada insumo para preservar intacta la esencia culinaria de nuestra tierra.</p>
-                <p>Nuestros salones fusionan el confort moderno con detalles cálidos y rústicos que te transportarán inmediatamente a los valles andinos desde el primer bocado.</p>
