@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Casa de Mariela | Restaurante Turístico Ayacuchano</title>
+    <style>
+        /* Estilos e Identidad Base - Inspirado en El Rocoto */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        body {
+            background-color: #121212; /* Fondo oscuro elegante */
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        :root {
+            --dorado-premium: #c5a880; /* El acento dorado corporativo */
+            --gris-oscuro: #1c1c1c;
+            --gris-claro: #f4f4f4;
+            --blanco: #ffffff;
+        }
+
+        /* Menú de Navegación Superior */
+        header {
+            background-color: #0b0b0b;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+        .logo {
+            color: var(--blanco);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--dorado-premium);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            color: #b5b5b5;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--dorado-premium);
+        }
+
+        /* Sección de Portada (Hero Banner) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://unsplash.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        .hero-subtitle {
+            color: var(--dorado-premium);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            color: var(--blanco);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-lineal {
+            border: 1px solid var(--dorado-premium);
+            color: var(--dorado-premium);
+            padding: 0.7rem 2.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: all 0.4s;
+        }
+        .btn-lineal:hover {
+            background-color: var(--dorado-premium);
+            color: #000;
+        }
+
+        /* Sección de Historia y Tradición */
+        .historia-section {
+            background-color: #161616;
+            padding: 6rem 2rem;
+        }
+        .historia-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .historia-texto h2 {
+            color: var(--blanco);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .historia-texto h2 span {
+            color: var(--dorado-premium);
+            display: block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .historia-texto p {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .historia-imagen {
+            width: 100%;
+            height: 380px;
+            background: url('https://unsplash.com') center/cover;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            padding: 10px;
+            background-clip: content-box;
+        }
+
+        /* Sección de la Carta y Bebidas (Estructura Común) */
+        .carta-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+        .bebidas-section {
+            background-color: #161616;
+            padding: 6rem 2rem;
+        }
+        .bebidas-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .titulo-bloque {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .titulo-bloque h2 {
+            color: var(--blanco);
+            font-size: 2.4rem;
+        }
+        .titulo-bloque::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 1px;
+            background-color: var(--dorado-premium);
+            margin: 1rem auto 0 auto;
+        }
+        
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        .tarjeta-item {
+            background-color: var(--gris-oscuro);
+            border: 1px solid #262626;
+            transition: border 0.3s;
+        }
+        .tarjeta-item:hover {
+            border: 1px solid var(--dorado-premium);
+        }
+        .item-img {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: filter 0.3s;
+        }
+        .tarjeta-item:hover .item-img {
+            filter: grayscale(0%);
+        }
+        .item-cuerpo {
+            padding: 2rem;
+        }
+        .item-cuerpo h3 {
+            color: var(--blanco);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .item-cuerpo p {
+            color: #909090;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            height: 70px;
+            overflow: hidden;
+        }
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #262626;
+            padding-top: 1rem;
+        }
+        .item-precio {
+            color: var(--dorado-premium);
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+        .item-etiqueta {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+        }
+
+        /* Sección de Contacto e Información */
+        .contacto-section {
+            background-color: #0b0b0b;
+            border-top: 1px solid rgba(197, 168, 128, 0.2);
+            padding: 4rem 2rem;
+        }
+        .contacto-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        .col-contacto h4 {
+            color: var(--dorado-premium);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        .col-contacto p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #050505;
+            color: #666;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Adaptabilidad Móvil */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .historia-container { grid-template-columns: 1fr; gap: 2rem; }
+            .historia-imagen { height: 280px; }
+            .hero h1 { font-size: 2.3rem; }
+            .item-cuerpo p { height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación Premium -->
+    <header>
+        <nav>
+            <a href="#" class="logo">La Casa de <span>Mariela</span></a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#carta">La Carta</a></li>
+                <li><a href="#bebidas">Bebidas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Portada Principal -->
+    <section id="inicio" class="hero">
+        <span class="hero-subtitle">Alta Cocina Tradicional</span>
+        <h1>Sazón Ayacuchana & Huantina</h1>
+        <a href="#carta" class="btn-lineal">Ver Nuestra Carta</a>
+    </section>
+
+    <!-- Reseña del Restaurante -->
+    <section id="nosotros" class="historia-section">
+        <div class="historia-container">
+            <div class="historia-texto">
+                <h2><span>Nuestra Historia</span>Tradición Familiar y Amor por los Andes</h2>
+                <p>En La Casa de Mariela rendimos un sincero homenaje a las recetas ancestrales de la región de Ayacucho y de la hermosa villa de Huanta. Seleccionamos cuidadosamente cada insumo para preservar intacta la esencia culinaria de nuestra tierra.</p>
+                <p>Nuestros salones fusionan el confort moderno con detalles cálidos y rústicos que te transportarán inmediatamente a los valles andinos desde el primer bocado.</p>
